@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="icon" type="image/png" href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
-  <!-- API Futebol Widget Script -->
-  <script src="https://cdn.api-futebol.com.br/widgets/v1/apifutebol-tabela.js"></script>
   <title>LUCFLIX</title>
 
-  <style>
+   <style>
     body {
       margin: 0;
       padding: 0;
@@ -32,23 +30,62 @@
       color: red;
     }
 
-    .category-buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 14px;
+    /* Estilos padrão para .media */
+    .media {
+      width: calc(20% - 20px);
+      margin: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
     }
 
-    .category-button {
-      width: 95px;
-      height: 40px;
-      background-color: black;
-      border: none;
-      border-radius: 20px;
-      margin-right: 5px;
-      cursor: pointer;
-      font-size: 15px;
-      color: white;
+    @media (max-width: 1024px) {
+      /* Estilos para telas menores ou iguais a 1024px com quatro colunas */
+      .media {
+        width: calc(25% - 20px);
+      }
     }
+
+    @media (max-width: 768px) {
+      /* Estilos para telas menores ou iguais a 768px com três colunas */
+      .media {
+        width: calc(33.33% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Estilos para telas menores ou iguais a 480px com duas colunas */
+      .media {
+        width: calc(50% - 20px);
+      }
+    }
+
+    .media img {
+      width: 100%;
+      height: auto;
+      border-radius: 7%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+.reset-button {
+  width: 40px;
+  height: 40px;
+  background-color: #001F3F; /* Add a semicolon here */
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  top: 5%;
+  right: 1.5%;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: white;
+}
 
    section {
   display: flex;
