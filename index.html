@@ -1,4 +1,82 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #lock-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #lock-screen img {
+            max-width: 100%;
+            max-height: 70vh;
+            margin-bottom: 20px;
+        }
+
+        #password-input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #unlock-button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .conteudo-bloqueado {
+            display: none;
+        }
+    </style>
+    <script>
+        function unlockContent() {
+            var password = document.getElementById("password-input").value;
+            if (password === "pintodecavalo") {
+                document.getElementById("lock-screen").style.display = "none";
+                document.querySelector(".conteudo-bloqueado").style.display = "block";
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h2>Confirmar Pagamento</h2>
+        <h3>Valor Mensal</h3>
+    </header>
+
+    <div id="lock-screen">
+        <img src="https://i.pinimg.com/736x/31/9c/84/319c84873f05728bb793b2ee45c74506.jpg" alt="Lock Screen Image">
+        <input type="password" id="password-input" placeholder="Digite a senha">
+        <button id="unlock-button" onclick="unlockContent()">Desbloquear</button>
+    </div>
+
+    <!-- ConteÃºdo bloqueado aqui -->
+    <section class="conteudo-bloqueado">
+      <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
@@ -293,3 +371,7 @@ function selectCategory(categoria) {
 </footer> 
 </body> 
 </html>
+    </section>
+
+</body>
+  </html>
