@@ -1,21 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
+  <!-- API Futebol Widget Script -->
+  <script src="https://cdn.api-futebol.com.br/widgets/v1/apifutebol-tabela.js"></script>
+  <title>LUCFLIX</title>
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
+    <style>
+       body {
+      margin: 0;
+      padding: 0;
+      background-color: #1D1A39;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: black;
+      text-align: center;
+      padding: 15px 0 5px;
+    }
+
+    .media img {
+      width: 100%;
+      height: auto;
+      border-radius: 7%;
+    }
 
         #lock-screen {
             display: flex;
@@ -48,59 +61,7 @@
         .conteudo-bloqueado {
             display: none;
         }
-    </style>
-    <script>
-        function unlockContent() {
-            var password = document.getElementById("password-input").value;
-            if (password === "lucaspirocudo") {
-                document.getElementById("lock-screen").style.display = "none";
-                document.querySelector(".conteudo-bloqueado").style.display = "block";
-            } else {
-                alert("Senha incorreta. Tente novamente.");
-            }
-        }
-    </script>
-</head>
-<body>
 
-    <header>
-        <h2>Confirmar Pagamento</h2>
-        <h3>Valor Mensal</h3>
-    </header>
-
-    <div id="lock-screen">
-        <img src="https://i.pinimg.com/736x/31/9c/84/319c84873f05728bb793b2ee45c74506.jpg" alt="Lock Screen Image">
-        <input type="password" id="password-input" placeholder="Digite a senha">
-        <button id="unlock-button" onclick="unlockContent()">Desbloquear</button>
-    </div>
-
-    <!-- ConteÃºdo bloqueado aqui -->
-    <section class="conteudo-bloqueado">
-      <!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
-  <!-- API Futebol Widget Script -->
-  <script src="https://cdn.api-futebol.com.br/widgets/v1/apifutebol-tabela.js"></script>
-  <title>LUCFLIX</title>
-
-   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #1D1A39;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      background-color: black;
-      text-align: center;
-      padding: 15px 0 5px;
-    }
 
     .logo {
       font-size: 2em;
@@ -138,13 +99,6 @@
         width: calc(50% - 20px);
       }
     }
-
-    .media img {
-      width: 100%;
-      height: auto;
-      border-radius: 7%;
-    }
-
     .hidden {
       display: none;
     }
@@ -166,20 +120,8 @@
   font-size: 15px;
   color: white;
 }
-
-  </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">LucFlix</div>
-        <h2>Filmes e Séries</h2>
-    </header>   
-
-</div> 
-
-    </div>
-        <style>    /* Adicione estilos para os botões de categoria */
+ 
+  /* Adicione estilos para os botões de categoria */
     .category-buttons {
       display: flex;
       justify-content: center;
@@ -202,8 +144,17 @@
 .media p {
   text-align: center;
 }
+ 
+    </style>
+    <div> 
 
-</style>
+    <header>
+        <div class="logo">LucFlix</div>
+        <h2>Filmes e Séries</h2>
+    </header>   
+
+</div> 
+
 <!-- Adicione os botões de categoria -->
 <div class="category-buttons">
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/filmes'" >Filmes</button>
@@ -212,6 +163,30 @@
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/futebol'">Futebol</button>
 </div> 
 
+    <script>
+        function unlockContent() {
+            var password = document.getElementById("password-input").value;
+            if (password === "lucaspirocudo") {
+                document.getElementById("lock-screen").style.display = "none";
+                document.querySelector(".conteudo-bloqueado").style.display = "block";
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="lock-screen">
+        <img src="https://i.pinimg.com/736x/31/9c/84/319c84873f05728bb793b2ee45c74506.jpg" alt="Lock Screen Image">
+        <input type="password" id="password-input" placeholder="Digite a senha">
+        <button id="unlock-button" onclick="unlockContent()">Desbloquear</button>
+    </div>
+</head>
+<body>
+
+    <!-- ConteÃºdo bloqueado aqui -->
+    <section class="conteudo-bloqueado">
+        
  <!-- <div class="apifutebol-tabela" data-client-id="LFT429MYR4TZ" style="height: 400px; width: 100%;"></div> -->
 
 <section id="moviesSection">
@@ -326,7 +301,8 @@ function selectCategory(categoria) {
   // Mostrar a seção selecionada
   document.getElementById(`${categoria}Section`).style.display = "flex";
 }
-</script>  
+</script> 
+    </section>
 <style>
   footer {
     background-color: black;
@@ -369,9 +345,5 @@ function selectCategory(categoria) {
     <li><a href="https://www.linkedin.com/in/lucas-nathan-760944229/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
   </ul>
 </footer> 
-</body> 
-</html>
-    </section>
-
 </body>
   </html>
