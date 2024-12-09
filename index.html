@@ -1,124 +1,121 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="icon" type="image/png" href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
-  <!-- API Futebol Widget Script -->
-  <script src="https://cdn.api-futebol.com.br/widgets/v1/apifutebol-tabela.js"></script>
   <title>LUKFLIX</title>
-        <a href="https://api.whatsapp.com/send?l=pt&amp;phone=557192920032"><img 
-src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom: 25px; right: 
-25px; z-index:999;" data-selector="img"></a>
-
-    <style>
-       body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;  
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPuflUpxuZVeqqELhgIsdmxBpDp9lhs-IoCA&usqp=CAU');
-    background-position: center;
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), 
+    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPuflUpxuZVeqqELhgIsdmxBpDp9lhs-IoCA&usqp=CAU');
+  background-position: center;
 }
-  
+
 @media (max-width: 720px) {
-    body {
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQIsk5bn_B0VP_ggb_L0xasQviNN1PWDTmDA&usqp=CAU');
-    }
+  body {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQIsk5bn_B0VP_ggb_L0xasQviNN1PWDTmDA&usqp=CAU');
+  }
 }
 
+header {
+  background-color: black;
+  text-align: center;
+  padding: 15px 0 5px;
+}
 
-    header {
-      background-color: black;
-      text-align: center;
-      padding: 15px 0 5px;
-    }
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: red;
+}
 
-    .media img {
-      width: 100%;
-      height: auto;
-      border-radius: 7%;
-    }
+.media {
+  width: calc(20% - 20px); /* Define a largura inicial de cada card */
+  margin: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+}
 
-       <!-- #lock-screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+.media img {
+  width: 100%;
+  height: auto;
+  border-radius: 7%;
+}
 
-        #lock-screen img {
-            max-width: 100%;
-            max-height: 70vh;
-            margin-bottom: 20px;
-        }
+.media p {
+  text-align: center;
+  color: white;
+  margin-top: 5px;
+}
 
-        #password-input {
-            padding: 10px;
-            font-size: 16px;
-        }
+section {
+  display: flex; /* Organiza os itens em linha */
+  flex-wrap: wrap; /* Permite quebra de linha quando o espaço não é suficiente */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
 
-        #unlock-button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
+/* Responsividade para diferentes tamanhos de tela */
+@media (max-width: 1024px) {
+  .media {
+    width: calc(25% - 20px); /* Ajusta para 4 colunas */
+  }
+}
 
-        .conteudo-bloqueado {
-            display: none;
-        } -->
+@media (max-width: 768px) {
+  .media {
+    width: calc(33.33% - 20px); /* Ajusta para 3 colunas */
+  }
+}
 
+@media (max-width: 480px) {
+  .media {
+    width: calc(50% - 20px); /* Ajusta para 2 colunas */
+  }
+}
 
-    .logo {
-      font-size: 2em;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: red;
-    }
+.hidden {
+  display: none; /* Esconde o container quando não está ativo */
+}
 
-    /* Estilos padrão para .media */
-    .media {
-      width: calc(20% - 20px);
-      margin: 10px;
-      box-sizing: border-box;
-      cursor: pointer;
-    }
+#frameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
-    @media (max-width: 1024px) {
-      /* Estilos para telas menores ou iguais a 1024px com quatro colunas */
-      .media {
-        width: calc(25% - 20px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      /* Estilos para telas menores ou iguais a 768px com três colunas */
-      .media {
-        width: calc(33.33% - 20px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      /* Estilos para telas menores ou iguais a 480px com duas colunas */
-      .media {
-        width: calc(50% - 20px);
-      }
-    }
-    .hidden {
-      display: none;
-    }
+#EmbedderContainer {
+  width: 740px;
+  height: 360px;
+  background: #4b0082;
+  color: white;
+  font-family: Hanuman, Ruda, sans-serif;
+  font-size: 15px;
+}
 
 .reset-button {
   width: 40px;
   height: 40px;
-  background-color: #001F3F; /* Add a semicolon here */
+  background-color: #001F3F;
   border: none;
   border-radius: 50%;
   position: fixed;
@@ -132,75 +129,78 @@ src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom
   font-size: 15px;
   color: white;
 }
- 
-  /* Adicione estilos para os botões de categoria */
-    .category-buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 14px; /* Espaçamento do topo */
-    }
 
-    .category-button {
-      width: 95px;
-      height: 40px;
-      background-color: black;  
-      border: none;
-      border-radius: 20px;
-      margin-right: 5px; /* Espaçamento entre os botões */
-      cursor: pointer;
-      font-size: 15px;
-      color: white;
-    } 
-           section {   display: flex;   flex-wrap: wrap;   justify-content: center;   align-items: center; /* Adicionado para centralizar verticalmente */   padding: 10px;   width: 80%; /* Defina a largura desejada para suas seções */   margin: 0 auto; /* Adicionado para centralizar horizontalmente */ } 
-     
-.media p {
-  text-align: center;
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
 }
- 
-    </style>
-    <div> 
 
-    <header>
-        <div class="logo">LukFlix</div>
-        <h2>Filmes e Séries</h2>
-    </header>   
+.category-button {
+  width: 95px;
+  height: 40px;
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  color: white;
+}
 
-</div> 
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0; /* Adiciona espaçamento superior e inferior */
+}
 
+footer p {
+  margin: 5px 0; /* Pequeno espaçamento entre as linhas */
+}
 
-<!-- Adicione os botões de categoria -->
-<div class="category-buttons">
-  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/filmes'" >Filmes</button>
-  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/series'" >Séries</button>
-  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/animes'">Animes</button>
-  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/futebol'">Futebol</button>
-</div> 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0; /* Espaçamento entre os ícones e o texto */
+}
 
-    <!-- <script>
-        function unlockContent() {
-            var password = document.getElementById("password-input").value;
-            if (password === "lucaspirocudo") {
-                document.getElementById("lock-screen").style.display = "none";
-                document.querySelector(".conteudo-bloqueado").style.display = "block";
-            } else {
-                alert("Senha incorreta. Tente novamente.");
-            }
-        }
-    </script> 
+li {
+  display: inline-block; /* Organiza os ícones em linha */
+  margin: 0 10px; /* Adiciona espaçamento lateral entre os ícones */
+}
+
+a {
+  color: white; /* Cor do ícone */
+  background-color: black; /* Fundo do ícone */
+  border-radius: 50%; /* Deixa os ícones circulares */
+  padding: 10px; /* Define o tamanho do círculo */
+  text-decoration: none; /* Remove o sublinhado */
+  display: inline-block; /* Garante que os ícones mantenham seu formato */
+  transition: transform 0.2s ease-in-out; /* Animação ao passar o mouse */
+}
+
+a:hover {
+  transform: scale(1.1); /* Aumenta o tamanho dos ícones ao passar o mouse */
+}
+  </style>
+</head>
 <body>
-    <div id="lock-screen">
-        <img src="https://i.pinimg.com/736x/31/9c/84/319c84873f05728bb793b2ee45c74506.jpg" alt="Lock Screen Image">
-        <input type="password" id="password-input" placeholder="Digite a senha">
-        <button id="unlock-button" onclick="unlockContent()">Desbloquear</button>
-    </div>
-    <body>
-<body> -->
+  <header>
+    <div class="logo">LukFlix</div>
+    <h2>Filmes e Séries</h2>
+  </header>
 
-    <!-- ConteÃºdo bloqueado aqui -->
-    <section class="conteudo-bloqueado">
-        
+  <div class="category-buttons">
+    <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/filmes'">Filmes</button>
+    <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/series'">Séries</button>
+    <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/animes'">Animes</button>
+    <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/futebol'">Futebol</button>
+  </div>
+
+         
  <!-- <div class="apifutebol-tabela" data-client-id="LFT429MYR4TZ" style="height: 400px; width: 100%;"></div> -->
-
+ 
 <section id="moviesSection">
   <!-- ... (existing movie-related content) ... --> 
 
@@ -261,101 +261,15 @@ src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom
     <p>Band Sports</p>
   </div>
 </section>
-
-<button class="reset-button" onclick="resetPage()"><i class="fas fa-home"></i></button>
-  </div>
-
-  <div id="frameContainer" class="hidden frame-container">
-    <iframe id="EmbedderContainer" width="100%" height="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </div>
-
-
-  <script>
-    function resetPage() {
-      // Redirecionar para o site de filmes
-      window.location.href = 'https://mrrobot071.github.io/futebol/';
-    }
-
-  function showFrame(src) {
-  const frameContainer = document.getElementById("frameContainer");
-  const embedderContainer = document.getElementById("EmbedderContainer");
-
-  // Adicione estilos ao iframe
-  embedderContainer.style.width = "740px";
-  embedderContainer.style.height = "360px";
-  embedderContainer.style.background = "#4b0082";
-  embedderContainer.style.color = "white";
-  embedderContainer.style.fontFamily = "Hanuman, Ruda, sans-serif";
-  embedderContainer.style.fontSize = "15px";
-
-  // Centralize o frameContainer na tela
-  frameContainer.style.display = "flex";
-  frameContainer.style.alignItems = "center";
-  frameContainer.style.justifyContent = "center";
-  frameContainer.style.position = "fixed";
-  frameContainer.style.top = "0";
-  frameContainer.style.left = "0";
-  frameContainer.style.width = "100%";
-  frameContainer.style.height = "100%";
-  frameContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-
-  // Remover a classe 'hidden'
-  frameContainer.classList.remove("hidden");
-  embedderContainer.src = src;
-}
-
-function selectCategory(categoria) {
-  // Ocultar todas as seções
-  document.getElementById("moviesSection").style.display = "none";
-  document.getElementById("seriesSection").style.display = "none";
-  document.getElementById("animationsSection").style.display = "none";
-
-  // Mostrar a seção selecionada
-  document.getElementById(`${categoria}Section`).style.display = "flex";
-}
-</script> 
-    </section>
-<style>
-  footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 10px; /* Ajuste conforme necessário */
-  }
-
-  footer p {
-    margin: 8px 0; /* Adiciona um pequeno espaçamento entre os parágrafos */
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  a {
-    color: white;
-    background-color: black;
-    border-radius: 50%;
-    padding: 10px;
-    text-decoration: none;
-  }
-</style>
-
-<footer>
-  <p>Copyright © 2023</p>
-  <p>Desenvolvido por Lucas Nathan</p>
-  <ul>
-    <li><a href="https://wa.me/557192920032" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-    <li><a href="https://www.instagram.com/071lkz/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    <li><a href="https://www.facebook.com/lucas.coelho.7564129" target="_blank"><i class="fab fa-facebook"></i></a></li>
-    <li><a href="https://www.linkedin.com/in/lucas-nathan-760944229/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-  </ul>
-</footer> 
+  <footer>
+    <p>Copyright © 2023</p>
+    <p>Desenvolvido por Lucas Nathan</p>
+    <ul>
+      <li><a href="https://wa.me/557192920032" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+      <li><a href="https://www.instagram.com/071lkz/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://www.facebook.com/lucas.coelho.7564129" target="_blank"><i class="fab fa-facebook"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/lucas-nathan-760944229/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+  </footer>
 </body>
-  </html>
+</html>
